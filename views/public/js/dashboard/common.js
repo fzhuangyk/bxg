@@ -1,4 +1,4 @@
-define(['jquery', 'cookie', 'template'], function ($, ck, template) {
+define(['jquery', 'cookie', 'template','bootstrap'], function ($, ck, template,bt) {
     $('.navs ul').prev('a').on('click', function () {
         $(this).next().slideToggle();
     });
