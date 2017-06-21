@@ -7,7 +7,7 @@ require.config({
     'jquery':'assets/jquery/jquery.min',
     'cookie':'assets/jquery-cookie/jquery.cookie',
     'bootstrap':'assets/bootstrap/js/bootstrap.min',
-    'template':'assets/artTemplate/template-native',
+    'template':'assets/artTemplate/template',
 //      'common': 'js/common',
     'common': 'js/dashboard/common',
 //      'login':'js/login'
