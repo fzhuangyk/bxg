@@ -24,7 +24,7 @@
                     <li class="active">讲师列表</li>
                 </ol>
                 <div class="page-title">
-                    <a href="/views/teacher/add.html" class="btn btn-success btn-sm pull-right">添加讲师</a>
+                    <a href="/teacher/add" class="btn btn-success btn-sm pull-right">添加讲师</a>
                 </div>
                 <div class="panel panel-default">
                     <div class="panel-body">
@@ -84,12 +84,20 @@
             <td>{{v.tc_name}}</td>
             <td>{{v.tc_roster}}</td>
             <td>{{v.tc_birthday}}</td>
-            <td>{{v.tc_gender}}</td>
+            {{if v.tc_gender==1}}
+            <td>男</td>
+            {{else}}
+            <td>女</td>
+            {{/if}}
             <td>{{v.tc_cellphone}}</td>
-            <td data-id="{{tc_id}}">
+            <td data-id="{{v.tc_id}}" data-status="{{v.tc_status}}">
                 <a href="#teacherModal" data-toggle="modal" class="btn btn-info btn-xs checkInfo">查 看</a>
-                <a href="./teacher_add.html" class="btn btn-info btn-xs">编 辑</a>
-                <a href="javascript::" class="btn btn-warning btn-xs">注 销</a>
+                <a href="/teacher/add" class="btn btn-info btn-xs editInfo">编 辑</a>
+                {{if v.tc_status==0}}
+                <a href="javascript::" class="btn btn-warning btn-xs cancelInfo">注 销</a>
+                {{else}}
+                <a href="javascript::" class="btn btn-warning btn-xs cancelInfo">启用</a>
+                {{/if}}
             </td>
         </tr>
         {{/each}}
@@ -115,11 +123,7 @@
         </tr>
         <tr>
             <th>性别:</th>
-            {{if tc_gender==1}}
-            <td>男</td>
-            {{else tc_gender==0}}
-            <td>女</td>
-            {{/if}}
+            <td>{{tc_gender}}</td>
             <th>出生日期:</th>
             <td colspan="3">{{tc_birthday}}</td>
         </tr>
