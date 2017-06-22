@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .box {
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,.3);
+      position: fixed;
+      top:0;
+      left:0;
+      display: none;
+    }
+    .box img {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+    }
+  </style>
+  <script src="/views/test/jquery/jquery.js"></script>
+  <script src="/views/test/nprogress/nprogress.js"></script>
+ 
+</head>
+<body>
+<input type="button" value="按钮">
+<a href="http://www.baidu.com">百度</a>
+<div class="box">
+  <img src="/views/test/loading.gif" alt="">
+</div>
+</body>
+</html>
+<script>
+  
+  // 用来监视整个页面的ajax请求，如果需要监视整个项目的话，则放到共同执行的文件当中即可
+    $(document).ajaxStart(function (){
+//        NProgress.start();
+          $(".box").fadeIn();
+    })  ;
+    $(document).ajaxStop(function (){
+//           NProg、ress.done();
+      $(".box").fadeOut();
+    })
+  
+  $('input').click(function (){
+         $.ajax({
+      url:'/views/test/aa.php',
+      type:'post'
+    })
+  })
+</script>

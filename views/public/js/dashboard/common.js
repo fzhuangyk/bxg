@@ -27,4 +27,11 @@ define(['jquery', 'cookie', 'template','bootstrap','nprogress'], function ($, ck
             }
         })
     })
+
+    $(document).ajaxStart(function(){
+        NProgress.start();
+    })
+    $(document).ajaxStop(function(){
+        NProgress.done();
+    })
 })

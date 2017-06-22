@@ -49,23 +49,5 @@ define(['jquery','template'],function($,template){
                 }
             }
         })
-    })
-
-    $("#tc_list_tBody").on('click','a.editInfo',function(){
-        var id=parseInt($(this).parent().attr('data-id'));
-        var that=$(this);
-        $.ajax({
-            url:'/api/teacher/edit',
-            type:'post',
-            data:{
-                tc_id:id,
-                tc_status:status
-            },
-            success:function(data){
-                if(data.code==200){
-                    that.parent().parent().remove();
-                }
-            }
-        })
-    })    
+    }) 
 })
